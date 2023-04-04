@@ -31,14 +31,14 @@ unzip $ZIPNAME
 cd $DIRNAME
 
 apps=(
-"@netless/app-countdown@0.0.7"
-"@netless/app-dice@0.1.1"
-"@netless/app-geogebra@0.0.6"
-"@netless/app-iframe-bridge@0.0.2"
-"@netless/app-mindmap@0.1.1"
-"@netless/app-monaco@0.2.0-canary.1"
-"@netless/app-quill@0.1.1"
-"@netless/app-selector@0.0.3"
+    "@netless/app-countdown@0.0.7"
+    "@netless/app-dice@0.1.1"
+    "@netless/app-geogebra@0.0.6"
+    "@netless/app-iframe-bridge@0.0.2"
+    "@netless/app-mindmap@0.1.1"
+    "@netless/app-monaco@0.2.0-canary.1"
+    "@netless/app-quill@0.1.1"
+    "@netless/app-selector@0.0.3"
 )
 
 for item in ${apps[@]}
@@ -48,10 +48,10 @@ done
 
 yarn buildWithoutGitHash
 
+touch ./build/$SHA
+echo "here are what injected into build" >> ./build/$SHA
 for item in ${apps[@]}
 do
-    touch ./build/$SHA
-    echo "here are what injected into build" >> ./build/$SHA
     echo $item >> ./build/$SHA
 done
 
