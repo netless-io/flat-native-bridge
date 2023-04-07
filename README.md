@@ -12,7 +12,6 @@ curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/b
 
 打包完成之后，你可以在 ./build/SHA 文件内确认一下注入的依赖是否正确。
 
-
 具体流程如下：
 
 1. 从 https://github.com/netless-io/Whiteboard-bridge 下载代码。需要指定原始 Resource 目录，用于查询 sha 并前往 Github 下载未打包内容。
@@ -25,3 +24,5 @@ curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/b
 ### 如何更新依赖版本
 
 更新 `bridge.sh`  文件里的 `apps` 变量
+
+如果同时有 注入信息和打包信息需要修改，请前往 `injectCode.ts` 或者 `webpack.config.flat.js` 中修改
