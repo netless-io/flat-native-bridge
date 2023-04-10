@@ -39,7 +39,9 @@ unzip $ZIPNAME
 cp $INJECT_CODE_PATH ./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME
 cp $WEBPACK_CONFIG_PATH ./Whiteboard-bridge-$SHA/$WEBPACK_CONFIG_NAME
 
-echo "import \"./injectCode\";\n$(cat ./Whiteboard-bridge-$SHA/src/index.tsx)" > ./Whiteboard-bridge-$SHA/src/index.tsx
+# Inject code (macos shell)
+sed -i '' -e "1i\\
+import \'.././injectCode'" ./Whiteboard-bridge-$SHA/src/bridge/SDK.ts
 
 # Build
 cd $DIRNAME

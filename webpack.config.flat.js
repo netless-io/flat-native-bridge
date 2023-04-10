@@ -8,5 +8,8 @@ module.exports = (env, argv) => {
         "@netless/app-quill": require.resolve("@netless/app-quill"),
         "yjs": require.resolve("yjs"),
     }
+    config.module.rules[0].exclude = [
+        /@babel/,
+    ];
     return config;
 }
