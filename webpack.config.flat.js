@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
         "yjs": require.resolve("yjs"),
     }
     config.module.rules[0].exclude = [
-        /@babel/,
+        /node_modules/,
     ];
     return config;
 }
