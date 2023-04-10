@@ -26,3 +26,7 @@ curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/b
 更新 `bridge.sh`  文件里的 `apps` 变量
 
 如果同时有 注入信息和打包信息需要修改，请前往 `injectCode.ts` 或者 `webpack.config.flat.js` 中修改
+
+### 注意
+
+重新生成 webpack.config.flat.js 主要是解决 esm 打包的问题。
