@@ -31,9 +31,9 @@ WEBPACK_CONFIG_PATH="$TMP_DIR/$WEBPACK_CONFIG_NAME"
 
 # Download
 mkdir $TMP_DIR
-curl https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/injectCode.ts -o $INJECT_CODE_PATH
-curl https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/webpack.config.flat.js -o $WEBPACK_CONFIG_PATH
-curl https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zip -o $ZIPNAME
+wget -O $INJECT_CODE_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/injectCode.ts
+wget -O $WEBPACK_CONFIG_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/webpack.config.flat.js
+wget -O $ZIPNAME https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zip
 unzip $ZIPNAME
 
 cp $INJECT_CODE_PATH ./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME

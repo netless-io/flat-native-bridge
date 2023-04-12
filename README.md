@@ -30,3 +30,7 @@ curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/b
 ### 注意
 
 重新生成 webpack.config.flat.js 主要是解决 esm 打包的问题。
+
+### 依赖
+
+wget (brew install wget)
