@@ -19,7 +19,7 @@ then
     exit 1
 fi
 
-$TARGET=$2
+$TARGET="$2"
 
 echo "SHA is $SHA"
 echo "TARGET is $TARGET"
