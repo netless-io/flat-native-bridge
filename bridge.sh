@@ -25,11 +25,12 @@ echo "SHA is $SHA"
 echo "TARGET is $TARGET"
 
 ZIPNAME="src.zip"
+ESBUILDNAME="esbuild.mjs"
 DIRNAME="Whiteboard-bridge-$SHA"
 TMP_DIR="Whiteboard-bridge-$SHA-tmp"
 INJECT_CODE_NAME="injectCode.ts"
 INJECT_CODE_PATH="$TMP_DIR/$INJECT_CODE_NAME"
-ESBUILD_SCRIPT_NAME="esbuild.mjs"
+ESBUILD_SCRIPT_NAME="$TMP_DIR/$ESBUILDNAME"
 
 # Download
 mkdir $TMP_DIR
