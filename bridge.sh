@@ -26,18 +26,17 @@ DIRNAME="Whiteboard-bridge-$SHA"
 TMP_DIR="Whiteboard-bridge-$SHA-tmp"
 INJECT_CODE_NAME="injectCode.ts"
 INJECT_CODE_PATH="$TMP_DIR/$INJECT_CODE_NAME"
-WEBPACK_CONFIG_NAME="webpack.config.flat.js"
-WEBPACK_CONFIG_PATH="$TMP_DIR/$WEBPACK_CONFIG_NAME"
+ESBUILD_SCRIPT_NAME="esbuild.mjs"
 
 # Download
 mkdir $TMP_DIR
 wget -O $INJECT_CODE_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/injectCode.ts
-wget -O $WEBPACK_CONFIG_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/webpack.config.flat.js
+wget -O $ESBUILD_SCRIPT_NAME https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/esbuild.mjs
 wget -O $ZIPNAME https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zip
 unzip $ZIPNAME
 
 cp $INJECT_CODE_PATH ./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME
-cp $WEBPACK_CONFIG_PATH ./Whiteboard-bridge-$SHA/$WEBPACK_CONFIG_NAME
+cp $ESBUILD_SCRIPT_NAME ./Whiteboard-bridge-$SHA/$ESBUILD_SCRIPT_NAME
 
 # Inject code (macos shell)
 sed -i '' -e "1i\\
@@ -62,7 +61,8 @@ do
     yarn add $item
 done
 
-yarn buildWithoutGitHash --config ./webpack.config.flat.js
+yarn add esbuild
+node esbuild.mjs
 
 touch ./build/$SHA
 echo "here are what injected into build" >> ./build/$SHA
