@@ -1,12 +1,13 @@
 import * as esbuild from "esbuild";
 import * as fs from "fs";
 
+const buildTarget = process.argv[2] || 'es6';
 const fileName = 'whiteboard-bridge';
 await esbuild.build({
   entryPoints: ["./src/index.tsx"],
   bundle: true,
   outfile: `./build/${fileName}.js`,
-  target: ['es6'],
+  target: [buildTarget],
   logLevel: 'info',
   define: {
     'process.env.NODE_ENV': JSON.stringify("production"),

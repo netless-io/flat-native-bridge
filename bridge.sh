@@ -19,7 +19,10 @@ then
     exit 1
 fi
 
+$TARGET=$2
+
 echo "SHA is $SHA"
+echo "TARGET is $TARGET"
 
 ZIPNAME="src.zip"
 DIRNAME="Whiteboard-bridge-$SHA"
@@ -36,7 +39,7 @@ wget -O $ZIPNAME https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zi
 unzip $ZIPNAME
 
 cp $INJECT_CODE_PATH ./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME
-cp $ESBUILD_SCRIPT_NAME ./Whiteboard-bridge-$SHA/$ESBUILD_SCRIPT_NAME
+cp $ESBUILD_SCRIPT_NAME ./Whiteboard-bridge-$SHA/$ESBUILD_SCRIPT_NAME $TARGET
 
 # Inject code (macos shell)
 sed -i '' -e "1i\\
