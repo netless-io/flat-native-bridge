@@ -27,20 +27,17 @@ echo "TARGET is $TARGET"
 ZIPNAME="src.zip"
 ESBUILDNAME="esbuild.mjs"
 DIRNAME="Whiteboard-bridge-$SHA"
-TMP_DIR="Whiteboard-bridge-$SHA-tmp"
 INJECT_CODE_NAME="injectCode.ts"
-INJECT_CODE_PATH="$TMP_DIR/$INJECT_CODE_NAME"
-ESBUILD_SCRIPT_NAME="$TMP_DIR/$ESBUILDNAME"
+INJECT_CODE_PATH="./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME"
+ESBUILD_SCRIPT_NAME="./Whiteboard-bridge-$SHA/$ESBUILDNAME"
 
 # Download
 mkdir $TMP_DIR
-wget -O $INJECT_CODE_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/injectCode.ts
-wget -O $ESBUILD_SCRIPT_NAME https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/esbuild.mjs
 wget -O $ZIPNAME https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zip
 unzip $ZIPNAME
 
-cp $INJECT_CODE_PATH ./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME
-cp $ESBUILD_SCRIPT_NAME ./Whiteboard-bridge-$SHA/$ESBUILD_SCRIPT_NAME $TARGET
+wget -O $INJECT_CODE_PATH https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/injectCode.ts
+wget -O $ESBUILD_SCRIPT_NAME https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/esbuild.mjs
 
 # Inject code (macos shell)
 sed -i '' -e "1i\\
