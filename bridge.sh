@@ -32,7 +32,6 @@ INJECT_CODE_PATH="./Whiteboard-bridge-$SHA/src/$INJECT_CODE_NAME"
 ESBUILD_SCRIPT_NAME="./Whiteboard-bridge-$SHA/$ESBUILDNAME"
 
 # Download
-mkdir $TMP_DIR
 wget -O $ZIPNAME https://github.com/netless-io/whiteboard-bridge/archive/$SHA.zip
 unzip $ZIPNAME
 
@@ -72,9 +71,8 @@ do
     echo $item >> ./build/$SHA
 done
 
-mv ./build ..
+cp -rf ./build ..
 
 cd ..
 rm -rf $DIRNAME
 rm -rf $ZIPNAME
-rm -rf $TMP_DIR
