@@ -3,8 +3,10 @@
 对于 Native 工程，你可以通过这样的形式来执行：
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/bridge.sh | sh -s DIR_TO_BRIDGERESOURCE
+curl -sSL https://raw.githubusercontent.com/netless-io/flat-native-bridge/main/bridge.sh | sh -s DIR_TO_BRIDGERESOURCE TARGET
 ```
+
+`TARGET` 参数可选为 es6 或者 iosxx。默认是 es6
 
 上述代码会拉取 DIR_TO_BRIDGERESOURCE 中对应的 Git SHA，并且将所需依赖打包完成。
 
